@@ -1,7 +1,6 @@
 jQuery(document).ready(function($) {
   "use strict";
 
-  //Contact
   $('form.contactForm').submit(function() {
     var f = $(this).find('.form-group'),
       ferror = false,
@@ -92,14 +91,13 @@ jQuery(document).ready(function($) {
     else var str = $(this).serialize();
     var action = $(this).attr('action');
     if( ! action ) {
-      action = 'contactform/contactform.php';
+      action = 'contactform/contactForm.php';
     }
     $.ajax({
       type: "POST",
       url: action,
       data: str,
       success: function(msg) {
-        // alert(msg);
         if (msg == 'OK') {
           $("#sendmessage").addClass("show");
           $("#errormessage").removeClass("show");
